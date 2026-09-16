@@ -45,3 +45,7 @@ jobs:
       - name: Push Docker image
         if: github.event_name == 'push'
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/product-ci-cd-api:latest
+
+      - name: Deploy to Render
+        if: github.event_name == 'push'
+        run: curl -fsS -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"

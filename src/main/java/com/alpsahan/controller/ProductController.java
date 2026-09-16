@@ -61,4 +61,11 @@ public class ProductController {
 
         return ResponseEntity.noContent().build();
     }
+    
+    @GetMapping("/hello")
+    public String hello() {
+		return "CI/CD is working!";
+    }
+    
+    
 }
